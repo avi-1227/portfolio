@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home Page</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'styles.css'%}">
+</head>
+
+<body class="">
+
+    <!-- Navbar Stating -->
+    <div class="sticky-top mb-5">
+        <div>
+            <nav class="navbar sticky-top navbar-expand-lg bg_color" data-bs-theme="dark">
+                <div class="container justify-content-between">
+                    <a class="navbar-brand" href="#">About<span class="text-warning">Me.</span></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#about">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#portfolio">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Resume</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" aria-disabled="true">Blog</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#contact">Contact</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+
+            </nav>
+            <!-- Navbar Ending -->
+        </div>
+
+        <!-- Starting Searchbar -->
+        <div class="container-fluid btn-warning p-3 bg_color">
+            <form class="d-flex mx-auto center-searchbar" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <!-- <button class="btn btn-outline-warning" type="submit">Search</button> -->
+            </form>
+        </div>
+        <!-- Ending Searchbar -->
+    </div>
+
+
+
+    <div class="container mt-3">
+
+        <!-- Starting Hero Section -->
+        <div class="container-fluid mb-5 border-bottom border-warning">
+            <div class="row flex align-items-center g-5 py-5">
+
+                <div class="col-lg-6">
+                    <p class="text-warning fs-6">Hello Welcome</p>
+                    <h1 class="display-5 text-light fw-bold lh-1 mb-3">Hi, Iam Avinash</h1>
+                    <p class="text-white justify-align text-uppercase"> Aspiring <span class="text-warning fw-bold">
+                            Python,
+                            Django web developer</span> and
+                        interested in software engineering and backend development</p>
+
+                    <div class="mt-3">
+                        <button class="btn btn-warning text-danger fw-bold f-3">Download CV</button>
+                    </div>
+                </div>
+
+                <div class="col-10 col-sm-8 col-lg-6">
+                    <img class="d-block mx-lg-auto img-fluid rounded"
+                        src="{% static 'images/avi...-removebg-preview.png' %}" alt="profile-img" width="350"
+                        height="200" loading="lazy">
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="text-white mt-5 border-bottom border-warning">
+            <h1 class="">About Me</h1>
+            <p class="text-secondary fw-bold justify-align">I'm a motivated and passionate individual with over six
+                years of
+                experience in
+                a non-technical role,
+                now transitioning into the tech industry as a Django web developer. With a strong foundation in
+                Python, Django, HTML, CSS, and JavaScript, I have dedicated myself to mastering full-stack web
+                development. My goal is to leverage my problem-solving skills and attention to detail to create
+                innovative and efficient web applications.</p>
+
+            <h3>Career Transition</h3>
+            <p class="text-secondary fw-bold justify-align">Having worked as a Typist and Computer operator. I have
+                completed
+                some online
+                courses and bootcamps
+                to build my technical skills, and I am excited to apply my knowledge in a professional setting..</p>
+
+            <h3>Skills</h3>
+            <ul class="text-secondary fw-bold justify-align">
+                <li>Programming Languages: Python, JavaScript (Basic)</li>
+                <li>Web Development: Django, Djanog REST Framework, HTML, CSS, Bootstrap</li>
+                <li>Database Management: PostgreSQL, SQLite, MySQL</li>
+                <li>Version Control: Git, GitHub</li>
+                <li>API Integration: RESTful APIs</li>
+                <li>Soft Skills: Problem-solving, attention to detail, effective communication, teamwork</li>
+            </ul>
+
+        </div>
+        <!-- End About Section -->
+
+        <div id="portfolio" class="border-bottom border-warning">
+            <h1 class="text-white py-4">Portfolio Projects</h1>
+
+            <div class="row row-cols-1 row-cols-md-3 mb-5 g-4">
+                {% for project in projects %}
+                <div class="col">
+                    <div class="card">
+                        <img src="{{project.image.url}}" class="card-img-top" alt="...">
+                        <div class="card-body border border-warning bg-dark text-white">
+                            <h5 class="card-title">{{project.title}}</h5>
+                            <p class="card-text">{{project.description|truncatewords:5}}...</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+
+
+            </div>
+        </div>
+
+
+        <!-- Start Contact Section -->
+
+
+
+        <div id="contact" class="text-white mt-5 py-3">
+            <h1 class="">Contact Me</h1>
+
+            <div class="row mt-5">
+                <div class="col-4 col-lg-4 col-sm-12">
+                    <div class="d-flex align-items-center py-3">
+                        <div class="flex-shrink-0 fs-3">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <address>
+                                <h3>Address</h3>
+                                <p class="text-warning fs-5 fst-italic">Tagore, Town, U.P. Prayagraj</p>
+                            </address>
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center py-3">
+                        <div class="flex-shrink-0 fs-3">
+                            <i class="fa-solid fa-phone-volume"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+
+                            <h3>Call Us</h3>
+                            <p class="text-warning fs-5 fst-italic">+91- 8896378329</p>
+
+
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center py-3">
+                        <div class="flex-shrink-0 fs-3">
+                            <i class="fa-solid fa-square-envelope"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+
+                            <h3>Email</h3>
+                            <p class="text-warning fs-5 fst-italic">avinaashprasadd@gmail.com</p>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="col-8 col-lg-8 col-sm-12>
+                    <form method=" post" action="">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-warning">Send</button>
+                    </form>
+                </div>
+            </div>
+
+
+
+
+        </div>
+        <!-- End Contact Section -->
+
+
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg_color text-white py-5 text-center">
+        <div class="container">
+            <p class="mb-0">© 2024 Your Company. All rights reserved.</p>
+            <ul class="list-unstyled mt-3 d-flex justify-content-between mb-0">
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Privacy Policy</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Terms of Service</a></li>
+                <li class="mx-2"><a href="#" class="text-white text-decoration-none">Contact</a></li>
+            </ul>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/js/all.min.js"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
